@@ -1,25 +1,25 @@
 import { PrismaService } from 'src/pristma.service';
 import { Product } from './product.model';
 
-export class ProductService {
+export class productService {
   constructor(private prisma: PrismaService) {}
 
   async getAllProduct(): Promise<Product[]> {
-    return this.prisma.products.findMany();
+    return this.prisma.product.findMany();
   }
 
   async getProduct(id: number): Promise<Product | null> {
-    return this.prisma.products.findUnique({ where: { id: Number(id) } });
+    return this.prisma.product.findUnique({ where: { id: Number(id) } });
   }
 
   async createProduct(data: Product): Promise<Product> {
-    return this.prisma.products.create({
+    return this.prisma.product.create({
       data,
     });
   }
 
   async updateProduct(id: number, data: Product): Promise<Product> {
-    return this.prisma.products.update({
+    return this.prisma.product.update({
       where: { id: Number(id) },
       data: {
         name: data.name,
@@ -31,7 +31,7 @@ export class ProductService {
   }
 
   async deleteProduct(id: number): Promise<Product> {
-    return this.prisma.products.delete({
+    return this.prisma.product.delete({
       where: { id: Number(id) },
     });
   }
