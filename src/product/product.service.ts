@@ -1,5 +1,5 @@
 import { PrismaService } from 'src/pristma.service';
-import { Product } from './product.moduel';
+import { Product } from './product.model';
 
 export class ProductService {
   constructor(private prisma: PrismaService) {}
